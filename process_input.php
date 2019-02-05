@@ -2,14 +2,22 @@
 <html>
 <body>
 
-    <?php 
-        require_once './dbconnect.php'; 
-    ?>
 
-    Welcome <?php echo $_POST["Name"]; ?><br>
-    Your id is: <?php echo $_POST["ID"]; ?>
+<?php 
+    require_once './dbconnect.php'; 
+    $name = $_POST["Name"];
+    $roll = $_POST["ID"];
+    $department = $_POST["Dept_name"];
 
-    
+    mysqli_query($DBcon,"INSERT INTO student (ID, name, dept_name) VALUES ('$roll', '$name', '$department')");
 
-<body>
+    $DBcon->close();
+?>
+
+<script type="text/javascript">location.href = './index.php';</script>
+
+
+</body>
 </html>
+
+
